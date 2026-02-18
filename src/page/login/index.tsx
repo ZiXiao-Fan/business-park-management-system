@@ -5,24 +5,21 @@ import logo from "../../assets/logo.png";
 import { Button,  Form, Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { LockOutlined } from '@ant-design/icons';
-import http from "../../utils/http/http";
-import { useEffect } from "react";
 import { login } from "../../api/user";
+import { setToken,removeToken } from "../../store/login/authSlice";
+import { useDispatch } from "react-redux";
 
 function Login(){
     const [form] = Form.useForm();
+    const dispatch = useDispatch()
     function handleLogin(){
-        form.validateFields().then((res)=>{
-            console.log(res)
+        form.validateFields().then(async(res)=>{
+            const {data:{token}} = await login(res)
+            dispatch(setToken(token))
+
         }).catch((err)=>{console.log(err)})
     }
-    const loginData = {
-        username:"managerFrank",
-        password:"123456"
-    }
-    useEffect(()=>{
-        login(loginData)
-    },[])
+ 
     return <div>
               <div className="login" style={{backgroundImage:`url(${bg})`}}>
                 <div className="lgbg" style={{backgroundImage:`url(${lgbg})`}}>
