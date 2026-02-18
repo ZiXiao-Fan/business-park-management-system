@@ -26,7 +26,9 @@ function Login(){
                         >
                             <Form.Item
                             name="username"
-                            rules={[{ required: true, message: 'Please input your username!' }]}
+                            rules={[{ required: true, message: 'Please input your username!' },
+                                    {pattern:/^\w{4,8}$/,message:'用户名必须是4-8位数字字母组合'}
+                            ]}
                             >
                             <Input prefix={<UserOutlined />} />
                             </Form.Item>
