@@ -5,6 +5,9 @@ import logo from "../../assets/logo.png";
 import { Button,  Form, Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { LockOutlined } from '@ant-design/icons';
+import http from "../../utils/http";
+import { useEffect } from "react";
+
 function Login(){
     const [form] = Form.useForm();
     function handleLogin(){
@@ -12,6 +15,16 @@ function Login(){
             console.log(res)
         }).catch((err)=>{console.log(err)})
     }
+    useEffect(()=>{
+        http({
+            method:"post",
+            url:"/login",
+            data:{
+                username:"赵铁柱",
+                password:"123456"
+            }
+        }).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
+    },[])
     return <div>
               <div className="login" style={{backgroundImage:`url(${bg})`}}>
                 <div className="lgbg" style={{backgroundImage:`url(${lgbg})`}}>
