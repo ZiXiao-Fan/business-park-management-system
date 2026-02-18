@@ -2,12 +2,16 @@ import "./index.scss";
 import bg from "../../assets/bg.jpg";
 import lgbg from "../../assets/lgbg.jpg";
 import logo from "../../assets/logo.png";
-import { Button,  Form, Input } from 'antd';type FieldType = {
-  username?: string;
-  password?: string;
-  remember?: string;
-};
+import { Button,  Form, Input } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { LockOutlined } from '@ant-design/icons';
 function Login(){
+    const [form] = Form.useForm();
+    function handleLogin(){
+        form.validateFields().then((res)=>{
+            console.log(res)
+        }).catch((err)=>{console.log(err)})
+    }
     return <div>
               <div className="login" style={{backgroundImage:`url(${bg})`}}>
                 <div className="lgbg" style={{backgroundImage:`url(${lgbg})`}}>
@@ -18,27 +22,25 @@ function Login(){
                             </div>
                             <h1>鹏远智慧园区</h1>
                         </div>
-                        <Form
+                        <Form form={form}
                         >
-                            <Form.Item<FieldType>
-                            label="Username"
+                            <Form.Item
                             name="username"
                             rules={[{ required: true, message: 'Please input your username!' }]}
                             >
-                            <Input />
+                            <Input prefix={<UserOutlined />} />
                             </Form.Item>
 
-                            <Form.Item<FieldType>
-                            label="Password"
+                            <Form.Item
                             name="password"
                             rules={[{ required: true, message: 'Please input your password!' }]}
                             >
-                            <Input.Password />
+                            <Input.Password prefix={<LockOutlined />}/>
                             </Form.Item>
 
                             <Form.Item label={null}>
-                            <Button  htmlType="submit">
-                                Submit
+                            <Button onClick={handleLogin} htmlType="submit" type="primary" style={{width:"100%"}}>
+                               Login
                             </Button>
                             </Form.Item>
                         </Form>
