@@ -6,18 +6,27 @@ import { Button,  Form, Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { LockOutlined } from '@ant-design/icons';
 import { login } from "../../api/user";
-import { setToken,removeToken } from "../../store/login/authSlice";
+import { setToken} from "../../store/login/authSlice";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { replace, useNavigate } from "react-router-dom";
 
 function Login(){
     const [form] = Form.useForm();
     const dispatch = useDispatch()
+    const [isLoading,setLoading] = useState<boolean>(false)
+    const navigate = useNavigate()
+
     function handleLogin(){
+        setLoading(true)
         form.validateFields().then(async(res)=>{
             const {data:{token}} = await login(res)
             dispatch(setToken(token))
+            navigate("/",{replace:true})
 
-        }).catch((err)=>{console.log(err)})
+        }).catch((err)=>{console.log(err)
+            setLoading(false)
+        })
     }
  
     return <div>
@@ -49,7 +58,7 @@ function Login(){
                             </Form.Item>
 
                             <Form.Item label={null}>
-                            <Button onClick={handleLogin} htmlType="submit" type="primary" style={{width:"100%"}}>
+                            <Button onClick={handleLogin} loading={isLoading} htmlType="submit" type="primary" style={{width:"100%"}}>
                                Login
                             </Button>
                             </Form.Item>

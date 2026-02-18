@@ -1,6 +1,7 @@
 import axios from "axios";
 import type { AxiosInstance,InternalAxiosRequestConfig,AxiosResponse } from "axios";
 import { message } from "antd";
+import { store } from "../../store";
 
 const http:AxiosInstance = axios.create({
     baseURL:"https://www.demo.com",
@@ -8,6 +9,10 @@ const http:AxiosInstance = axios.create({
 })
 
 http.interceptors.request.use((config:InternalAxiosRequestConfig)=>{
+    const {token} =  store.getState().authSlice
+    if(token){
+        config.headers['Authorization'] = `bearer${token}`
+    }
     console.log("config is",config)
     return config
 })
