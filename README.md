@@ -3,19 +3,16 @@
 A modern business park management dashboard built with React, TypeScript and Redux Toolkit.
 
 ## Live Demo
-
+Use the demo accounts below to explore different permission levels and role-based access control (RBAC) features.
 https://frabjous-marzipan-77b283.netlify.app
 
 ## Demo Account
 
-Username: admin
-Password: admin123
-
-Username: manager
-Password: manager123
-
-Username: user
-Password: user123
+| Role | Username | Password |
+|--------|----------|----------|
+| Admin | admin | admin123 |
+| Manager | manager | manager123 |
+| User | user | user123 |
 
 ## Overview
 
