@@ -1,9 +1,24 @@
 .dashboard{
+    .stat-card{
+        .ant-card-body{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+    }
+    .stat-card__content{
+        flex: 1;
+        min-width: 0;
+    }
+    .stat-card__icon{
+        flex: 0 0 auto;
+    }
     .area{
         p{color:#666;line-height: 30px;}
     }
     .icon{
-        font-size: 60px;color: #7da1f7;margin-right: 20px;
+        font-size: 60px;color: #7da1f7;
     }
     .wrap{
         text-align: center;

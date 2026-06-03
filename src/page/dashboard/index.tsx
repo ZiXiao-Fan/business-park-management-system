@@ -143,45 +143,45 @@ export default function Dashboard() {
     <div className="dashboard">
       <Row gutter={16}>
         <Col span={6}>
-          <Card className="clearfix">
-            <div className="fl area">
+          <Card className="stat-card">
+            <div className="stat-card__content area">
               <h2>12333</h2>
               <p>Total Park Area (sqm)</p>
             </div>
-            <div className="fr">
+            <div className="stat-card__icon">
               <RadarChartOutlined className="icon" />
             </div>
           </Card>
         </Col>
         <Col span={6}>
-          <Card>
-            <div className="fl area">
+          <Card className="stat-card">
+            <div className="stat-card__content area">
               <h2>8635</h2>
               <p>Total Leased Area (sqm)</p>
             </div>
-            <div className="fr">
+            <div className="stat-card__icon">
               <SnippetsOutlined className="icon" style={{ color: "#81c452" }} />
             </div>
           </Card>
         </Col>
         <Col span={6}>
-          <Card>
-            <div className="fl area">
+          <Card className="stat-card">
+            <div className="stat-card__content area">
               <h2>38764</h2>
               <p>Total Output Value (10k CNY)</p>
             </div>
-            <div className="fr">
+            <div className="stat-card__icon">
               <DollarOutlined className="icon" style={{ color: "#62c9cb" }} />
             </div>
           </Card>
         </Col>
         <Col span={6}>
-          <Card>
-            <div className="fl area">
+          <Card className="stat-card">
+            <div className="stat-card__content area">
               <h2>2874</h2>
               <p>Total Resident Companies</p>
             </div>
-            <div className="fr">
+            <div className="stat-card__icon">
               <LaptopOutlined className="icon" style={{ color: "#e49362" }} />
             </div>
           </Card>
