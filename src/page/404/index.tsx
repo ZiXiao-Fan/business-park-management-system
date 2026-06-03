@@ -1,4 +1,5 @@
- function PageNotFound(){
-    return <div>页面飞去火星了 ;（</div>
+function PageNotFound() {
+  return <div>This page has gone to Mars ;(</div>;
 }
-export default PageNotFound
+
+export default PageNotFound;

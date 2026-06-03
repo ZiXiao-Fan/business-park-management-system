@@ -1,4 +1,4 @@
-import { post } from "../utils/http/request";
+import { post,get } from "../utils/http/request";
 
 interface loginData{
     username:string,
@@ -6,4 +6,8 @@ interface loginData{
 }
 export function login(data:loginData){
     return post("login",data)
+}
+
+export function getMenu(){
+    return get("menu")
 }

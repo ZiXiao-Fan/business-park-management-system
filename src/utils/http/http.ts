@@ -5,20 +5,18 @@ import { store } from "../../store";
 
 const http:AxiosInstance = axios.create({
     baseURL:"https://www.demo.com",
-    timeout:5000
+    timeout:1000
 })
 
 http.interceptors.request.use((config:InternalAxiosRequestConfig)=>{
     const {token} =  store.getState().authSlice
     if(token){
-        config.headers['Authorization'] = `bearer${token}`
+        config.headers['Authorization'] = `Bearer${token}`
     }
-    console.log("config is",config)
     return config
 })
 
 http.interceptors.response.use((response:AxiosResponse)=>{
-    console.log("response is", response)
     const res = response.data
     if(res.code!==200){
         message.error(res.code+":"+res.message)
