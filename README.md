@@ -2,6 +2,21 @@
 
 A modern business park management dashboard built with React, TypeScript and Redux Toolkit.
 
+## Live Demo
+
+https://frabjous-marzipan-77b283.netlify.app
+
+## Demo Account
+
+Username: admin
+Password: admin123
+
+Username: manager
+Password: manager123
+
+Username: user
+Password: user123
+
 ## Overview
 
 Business Park Management System is a frontend administration platform designed to simulate the daily operations of a commercial business park.
